@@ -22,7 +22,7 @@ exports.createProduct=async(req,res)=>{
 
       /*------check for ADMIN-----*/
       const userId = req.User.id;
-      const productDetails = await User.findById({ userid });
+      const productDetails = await User.findById({ userId });
 
     //verify that userId and productDetails._id is same or different?
 
