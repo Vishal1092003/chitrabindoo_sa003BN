@@ -1,10 +1,14 @@
 const mongoose=require("mongoose")
 
 const productSchema=new mongoose.Schema({
+    productImage:{
+        type:String,
+        // required:true
+    },
     productName:{
        type:String,
     },
-   description: {
+   productDescription: {
         type: String
     },
     price: {
@@ -25,11 +29,8 @@ const productSchema=new mongoose.Schema({
     tag:{
         type:mongoose.Schema.Types.ObjectId,
         ref:Tag
-    },
-    BoughtBy:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"User"
     }
+
 })
 
 module.exports = mongoose.model("Product","productSchema");

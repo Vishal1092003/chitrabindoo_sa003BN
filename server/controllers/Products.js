@@ -10,7 +10,7 @@ require("dotenv").config()
 /*-------------------------create product handler -----------------------------------------------*/
 exports.createProduct=async(req,res)=>{
   try{
-      const { productName, description, price, tag } = req.body;
+      const { productName, description, price, tag} = req.body;
       /*----tag here is an id check Product model----*/
       const thumbnail = req.files.thumbnailImage;
       if (!productName || !description || !price || !tag) {
@@ -117,8 +117,18 @@ exports.getProductDetails=async(req,res)=>{
         const {product_id}=req.body;
         const productDetails=await Products.find({product_id})
                                           .populate("admin")
-    }catch(error){
 
+        return res.status(200).json({
+            success:true,
+            message:"All Product Details Feteched Successfully",
+            productDetails
+        })
+    }catch(error){
+        return res.status(200).json({
+            success: false,
+            Message: error.message,
+
+        })
     }
 }
 

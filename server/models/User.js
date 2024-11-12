@@ -24,9 +24,13 @@ const userSchema=new mongoose.Schema({
         type: String,
         required: true,
     },
-    products:{
+    productsBought:{
        type:mongoose.Schema.Types.ObjectId,
-       ref:"Product"
+       ref:"Bought"
+    },
+    productsInCart:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"AddedToCart"
     },
     additonalDetails: {
         type: mongoose.Schema.Types.ObjectId,
